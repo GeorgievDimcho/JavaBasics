@@ -1,0 +1,1 @@
+alias javaStart='cd /home/osi/Documents/fh/2025/java/JavaBasics/april_2/ && javac Test.java && java Test'

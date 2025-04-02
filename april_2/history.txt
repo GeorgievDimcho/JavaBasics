@@ -1,0 +1,16 @@
+ 229  cd Documents/fh/2025/java/JavaBasics/
+  230  mkdir april_2
+  231  cd april_2/
+  232  vim Test.java
+  233  cat Test.java 
+  234  javac Test.java 
+  235  ls
+  236  java Test 
+  237  mv /home/osi/.bash_aliases ~/.bash_aliases_backup
+  238  vim ~/.bash_aliases
+  239  source ~/.bashrc
+  240  vim ~/.bash_aliases
+  241  source ~/.bashrc
+  242  alias
+  243  clear
+  244  history
