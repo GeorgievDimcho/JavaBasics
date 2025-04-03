@@ -1,3 +1,5 @@
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.Scanner;
 
 public class Calendars {
@@ -92,8 +94,10 @@ public class Calendars {
         }
     }
 
-    private static int ymd2w(year, month, day) {
-        
+    private static int ymd2w(int year,int  month,int day) {
+        LocalDate date = LocalDate.of(year, month, month);
+        int dayOfWeek = date.getDayOfWeek().getValue();
+        return dayOfWeek;
     }
 
     public static void main(String[] args) {
