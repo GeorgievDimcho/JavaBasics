@@ -80,7 +80,7 @@ public class Calendars {
         boolean isMonthAndYearValid = checkDate(year, month);
         if (day >= 1 && day <= daysInMonth(year, month) && isMonthAndYearValid) {
             if (year == 1582) {
-                if (day>=16){
+                if (day >= 16) {
                     return true;
                 } else {
                     return false;
@@ -90,6 +90,10 @@ public class Calendars {
         } else {
             return false;
         }
+    }
+
+    private static int ymd2w(year, month, day) {
+        
     }
 
     public static void main(String[] args) {
@@ -125,18 +129,17 @@ public class Calendars {
                     break;
 
                 case CHECK_DATE:
-                System.out.printf("\ncheckDate1(year): %b\n", checkDate(year));
-                System.out.printf("checkDate2(year, month): %b\n", checkDate(year, month));
-                System.out.printf("checkDate3(year, month, day): %b\n", checkDate(year,
-                month, day));
-                break;
+                    System.out.printf("\ncheckDate1(year): %b\n", checkDate(year));
+                    System.out.printf("checkDate2(year, month): %b\n", checkDate(year, month));
+                    System.out.printf("checkDate3(year, month, day): %b\n", checkDate(year,
+                            month, day));
+                    break;
 
-                // /*------------------------- CALCULATIONS ----------------------*/
-                // case YMD_2_W: {
-                // System.out.printf("\nymd2w(year, month, day): %d\n", ymd2w(year, month,
-                // day));
-                // break;
-                // }
+                /*------------------------- CALCULATIONS ----------------------*/
+                case YMD_2_W: {
+                    System.out.printf("\nymd2w(year, month, day): %d\n", ymd2w(year, month, day));
+                    break;
+                }
                 // case DAY_NUMBER:
                 // System.out.printf("\ndayNumber(year, month, day): %d\n", dayNumber(year,
                 // month, day));
