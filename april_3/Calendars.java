@@ -94,10 +94,19 @@ public class Calendars {
         }
     }
 
-    private static int ymd2w(int year,int  month,int day) {
+    private static int ymd2w(int year, int month, int day) {
         LocalDate date = LocalDate.of(year, month, month);
         int dayOfWeek = date.getDayOfWeek().getValue();
         return dayOfWeek;
+    }
+
+    private static int dayNumber(int year, int month, int day) {
+        int dayNumber = 0;
+        for (int i = 1; i < month; i++) {
+            dayNumber = dayNumber + daysInMonth(year, i);
+        }
+        dayNumber = dayNumber + day;
+        return dayNumber;
     }
 
     public static void main(String[] args) {
@@ -144,10 +153,9 @@ public class Calendars {
                     System.out.printf("\nymd2w(year, month, day): %d\n", ymd2w(year, month, day));
                     break;
                 }
-                // case DAY_NUMBER:
-                // System.out.printf("\ndayNumber(year, month, day): %d\n", dayNumber(year,
-                // month, day));
-                // break;
+                case DAY_NUMBER:
+                    System.out.printf("\ndayNumber(year, month, day): %d\n", dayNumber(year, month, day));
+                    break;
 
                 // case WEEK_NUMBER:
                 // System.out.printf("\nweekNumber(year, month, day): %d\n", weekNumber(year,
