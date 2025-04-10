@@ -1,0 +1,51 @@
+
+-- create
+CREATE TABLE adresse (
+  addr_id NUMBER primary key,
+  strasse VARCHAR2(15) ,
+  plz NUMBER,
+  ort VARCHAR2(20),
+  hausnummer number
+);
+
+INSERT INTO adresse VALUES (1, 'First Street', 5000, 'Wien', 1);
+INSERT INTO adresse VALUES (2, 'Second Street', 4500, 'Wien2', 2);
+
+select * from adresse;
+
+CREATE TABLE personen (
+  pers_id NUMBER primary key,
+  vorname VARCHAR2(15) ,
+  nachname VARCHAR2(20),
+  geschlecht VARCHAR2(20)
+);
+
+CREATE TABLE filialen (
+  f_id NUMBER primary key,
+  uid_num NUMBER,
+  name VARCHAR2(15) ,
+  telefon NUMBER,
+  fax NUMBER,
+  geschlossen number
+);
+
+INSERT INTO personen VALUES (1, 'First name', 'Second name', 'divers');
+INSERT INTO filialen VALUES (1, 2345 ,'best filiale', 06776452344324, 987654, 0);
+select * from personen;
+select * from filialen;
+
+ALTER TABLE personen ADD adresse number;
+
+
+ALTER TABLE personen ADD CONSTRAINT fk_addr foreign key (adresse) REFERENCES adresse(addr_id);
+--INSERT into personen (adresse) VALUES (2) where pers_id=1;
+-- select addr_id from adresse where plz = 5000;
+UPDATE personen SET adresse = 1 WHERE pers_id = 1;
+select * from personen;
+
+ALTER TABLE filialen ADD adresse number;
+ALTER TABLE filialen ADD CONSTRAINT fk_addr_filiale foreign key (adresse) REFERENCES adresse(addr_id);
+--INSERT into personen (adresse) VALUES (2) where pers_id=1;
+-- select addr_id from adresse where plz = 5000;
+UPDATE filialen SET adresse = 2 WHERE f_id = 1;
+select * from filialen;
