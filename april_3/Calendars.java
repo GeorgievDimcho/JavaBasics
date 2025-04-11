@@ -1,5 +1,7 @@
 import java.sql.Date;
 import java.time.LocalDate;
+import java.time.temporal.WeekFields;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Calendars {
@@ -101,12 +103,28 @@ public class Calendars {
     }
 
     private static int dayNumber(int year, int month, int day) {
-        int dayNumber = 0;
-        for (int i = 1; i < month; i++) {
-            dayNumber = dayNumber + daysInMonth(year, i);
+        if (checkDate(year, month, day)) {
+            int dayNumber = 0;
+            for (int i = 1; i < month; i++) {
+                dayNumber = dayNumber + daysInMonth(year, i);
+            }
+            dayNumber = dayNumber + day;
+            return dayNumber;
+        } else {
+            return -1;
         }
-        dayNumber = dayNumber + day;
-        return dayNumber;
+    }
+
+    private static int weekNumber(int year, int month, int day) {
+        // Week 1 in any year is the week of Jan, 1 st
+        WeekFields weekFields = WeekFields.of(Locale.getDefault());
+        if (checkDate(year, month, day)) {
+            LocalDate date = LocalDate.of(year, month, month);
+            int weekNumber = date.get(weekFields.weekOfWeekBasedYear());
+            return weekNumber;
+        } else {
+            return -1;
+        }
     }
 
     public static void main(String[] args) {
@@ -157,10 +175,9 @@ public class Calendars {
                     System.out.printf("\ndayNumber(year, month, day): %d\n", dayNumber(year, month, day));
                     break;
 
-                // case WEEK_NUMBER:
-                // System.out.printf("\nweekNumber(year, month, day): %d\n", weekNumber(year,
-                // month, day));
-                // break;
+                case WEEK_NUMBER:
+                    System.out.printf("\nweekNumber(year, month, day): %d\n", weekNumber(year, month, day));
+                    break;
 
                 // /*------------------------- OUTPUT ----------------------*/
                 // case PRINT_STATISTICS:
