@@ -1,0 +1,2 @@
+cd() { builtin cd "$@" && ls -lah;}
+set -o vi
