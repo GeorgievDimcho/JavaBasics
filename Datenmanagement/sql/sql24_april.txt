@@ -87,3 +87,37 @@ ALTER TABLE rechnung ADD CONSTRAINT fk_filiale_id foreign key (filialen_id) REFE
 insert into rechnung VALUES (1,TO_DATE('2000-04-24 21:24:00', 'YYYY-MM-DD hh24:mi:ss'),1);
 --
 select * from rechnung;
+alter table rechnung add mit_id NUMBER;
+alter table rechnung add kunden_id NUMBER;
+
+create table produkte (
+  prod_id NUMBER primary key,
+  name VARCHAR2(10),
+  preis float,
+  mwst NUMBER,
+  ausgelaufen NUMBER
+);
+
+create table allergene (
+  kurzel VARCHAR2(10) primary key,
+  bezeichnugn VARCHAR2(10)
+);
+
+create table aller_prod (
+  prod_id,
+  kurzel,
+  foreign key (prod_id) REFERENCES produkte(prod_id),
+  foreign key (kurzel) REFERENCES allergene(kurzel),
+  primary key (prod_id,kurzel)
+);
+
+create table rechn_prod (
+  id NUMBER primary key,
+  preis float,
+  mwst NUMBER,
+  rechn_num,
+  prod_id,
+  foreign key (rechn_num) REFERENCES rechnung(rechnungNum),
+  foreign key (prod_id) REFERENCES produkte (prod_id)
+);
+
