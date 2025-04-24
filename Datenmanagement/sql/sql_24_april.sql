@@ -89,8 +89,8 @@ insert into rechnung VALUES (1,TO_DATE('2000-04-24 21:24:00', 'YYYY-MM-DD hh24:m
 select * from rechnung;
 alter table rechnung add mit_id NUMBER;
 alter table rechnung add kunden_id NUMBER;
-alter table rechnung add constrain forein key (mid_id) references mitarbeiter (mitarbeiterNum);
-alter table rechnung add constrain forein key (kinden_id) references kunden (kundennummer);
+alter table rechnung add constraint fk_mit foreign key (mit_id) references mitarbeiter (mitarbeiterNum);
+alter table rechnung add constraint fk_kunde foreign key (kunden_id) references kunden (kundennummer);
 create table produkte (
   prod_id NUMBER primary key,
   name VARCHAR2(10),
