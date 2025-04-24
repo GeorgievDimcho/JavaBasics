@@ -1,2 +1,3 @@
 cd() { builtin cd "$@" && ls -lah;}
 set -o vi
+bind 'set show-mode-in-prompt on'
