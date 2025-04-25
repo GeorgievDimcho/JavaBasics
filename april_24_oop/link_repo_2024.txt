@@ -1,0 +1,14 @@
+java best practices:
+https://www.javaguides.net/2025/02/top-10-best-practices-for-java-oop.html
+--
+design patterns java:
+https://www.digitalocean.com/community/tutorials/java-design-patterns-example-tutorial
+-
+https://www.geeksforgeeks.org/java-design-patterns/
+--
+git:
+https://github.com/marvkos/eww-prog-lecture/tree/main
+--
+uml visualizer:
+https://www.plantuml.com/plantuml/uml/bP2zJiCm58LtFuN7Cl027L11Z1LYOOui-xHOSgx3lTTKVNkecr1NJIbCaUFpS_ojH1rhwPCnpcjcwq8VoPZwiVSFzfKX87KQCosj8C6h5Iq1f1R4EQKUfCOqmcfyAX898alh6KxH4NRTQ3JJvMK3uwD0T59saJQP-tfvRHH8mJ-RMiFrJOCJcUjOZF_kJBEnDNw2usR_RHcADcANrFhCVA1p33iFU7RgkaVlQuPevfP76uGai3lEj9tDcOTLzRF8vfdPtw3TeZO-ymOzK31cUlKSX70ul3iAATBsd6G5vBQmFlT3Wk8YwJI9eOMfgqX3TmWzPLq75w8CoUrF-WR-L0xcpFzhVdbRh_zIMwCNOz7nD25RWKBfqnS0
+--
