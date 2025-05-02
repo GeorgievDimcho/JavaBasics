@@ -1,0 +1,131 @@
+rechte:
+Veriante 1:
+	chmod (a,u,g,o) +/-/= (r,w,x) filename
+	= overwrites the existing permissions
+Variante 2:
+	chmod (0-7)(0-7)(0-7) filename
+	(owner)-(group)-(others)
+Beispiel: chmod a+r
+---
+chown username  filename
+chgrp groupname filename
+-----
+vi filename 
+(if filename exists -> content shown; create new file with filename)
+Modes:
+	insert -> i
+	replace -> r/R
+	command/normal -> default/ESC
+	colon -> :
+	visual -> v
+y -> yank (copy)
+p -> paste
+u -> undo
+:write filename
+:quit
+:q!-> force quit
+--
+head/tail -n number
+--
+cat  filename
+less filename
+more filename
+--
+find <directory> <option> filename 
+Beispiel:
+find / -name "zsh_command_not_found" 2>/dev/null
+<options>:
+size
+type
+ownership
+-name
+-iname caseinsensitive
+. -- curent folder
+/ -- everywhere
+0 - std in
+1 - std out
+2 - std error
+---
+grep
+grep <string> <options> <directory>
+grep "hfsgdhd55e" -r ~/ 
+cat long_file.txt | grep <string>
+--
+regex
+
+--
+cronjob
+list scheduled autostart jobs
+-e
+--
+adduser <new_username> 
+lowecase!
+--
+deluser <username>
+--
+ps -aux
+ps - report a snapshot of the current processes.
+--
+uname -a
+-s, --kernel-name        print the kernel name
+-a, --all                print all information, in the following order,
+--
+who -r
+Print information about users who are currently logged in.
+-r, --runlevel    print current runlevel
+--
+commands chainen
+command1 && command2 if command1 executes without error then execute command2
+--
+command1 || command2
+execute command2 only if command1 has non-zero return value
+--
+command1 | command2  (pipe) the output of command1 becomes input for command2
+--
+tcpdump (commandline tool similar to wireshark)
+--
+nmap
+--
+systectl
+--
+journalctl
+--
+jobs
+fg
+bg
+--
+tee
+
+--
+hostname
+print the hostname
+/etc/hosts
+--
+Tracert/Traceroute
+traceroute google.com
+(ping google.com -t (1,2,3,++))
+--
+Ipconfig/Ifconfig bzw. ip
+--
+Ping
+Arp Ping
+TCP Ping
+--
+Nslookup/Dig
+list dns records for domain
+--
+The 'priority' numbers before the domains for these MX records indicate preference; the lower 'priority' value is preferred.
+--
+nslookup -q=MX orf.at 8.8.8.8
+MX (Mail Exchanger) 
+8.8.8.8 ip von DNS
+----
+dig milka.at MX
+-x reverse DNS Query | known: ip | gesucht: domain name
+--
+host orf.at
+--
+netstat
+
+--
+sudo iptables -S
