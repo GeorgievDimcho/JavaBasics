@@ -23,6 +23,7 @@ p -> paste
 u -> undo
 :write filename
 :quit
+:set nu
 :q!-> force quit
 --
 head/tail -n number
@@ -59,9 +60,23 @@ list scheduled autostart jobs
 -e
 --
 adduser <new_username> 
+create also a home directory
 lowecase!
 --
 deluser <username>
+--
+add default gateway
+entweder ip ro ...
+oder route add default gw 192.168.1.1
+--
+subnetmaske
+ifconfig eth0 netmask 255.255.255.224
+--
+arp table
+arp -s 192.168.1.7 22:b4:23:ba:fa:2f
+--
+show routing table
+ip route show
 --
 ps -aux
 ps - report a snapshot of the current processes.
@@ -83,18 +98,28 @@ execute command2 only if command1 has non-zero return value
 command1 | command2  (pipe) the output of command1 becomes input for command2
 --
 tcpdump (commandline tool similar to wireshark)
+sudo tcpdump -i wlp3s0 port 443 -w tcpTest
+go to wireshark -> file -> open -> tcpTest
 --
-nmap
+nmap - port scanner (open, filtered, closed) je nachdem was in der iptables steht
 --
-systectl
+systemctl - steuerung und überwachung von services und deamons
 --
-journalctl
+journalctl - logs anzeigen
 --
 jobs
 fg
 bg
 --
-tee
+tee - schreibt der Output von vorheriges Befehl in einer Datei UND leitet gleichzeitig weiter zum nächsten Befehl
+cat abc.txt | tee new2.txt | more
+--
+ersetzen von tee
+cat abc.txt > new3.txt && more new3.txt
+--
+echo "text" >> filename | cat filename
+>> append at the end of file
+> überschreiben
 
 --
 hostname
@@ -123,9 +148,39 @@ MX (Mail Exchanger)
 dig milka.at MX
 -x reverse DNS Query | known: ip | gesucht: domain name
 --
+ähnlich wie nslookup/dig
 host orf.at
 --
-netstat
-
+netstat - status von ports (TCP/UDP) 
+listening, connected
+netstat (ohne arguments) - shows connections
+netstat -at - all tcp
+-au - all udp
+-lt - TCP mit status LISTEN
+--
+open vs closed port (aus dem Blick von Firewall)
+all ports not filtered/rejected from FW -> OPEN
 --
 sudo iptables -S
+ACCEPT ->
+reject -> sendet nachricht zurück an der Absender
+drop   -> sendet nichts zurück
+--
+important files
+/etc/hosts - hostname to ip addr mapping
+/etc/passwd - where the user information is saved  
+bevor 1000 system user
+100(0) - die (0) entspricht root  
+ab 1000 normal user
+/etc/shadow- where the hashes of the passwords are saved  
+--
+sudo ifconfig enp2s0f1 down/up
+sudo ip link set dev enp2s0f1 down/up
+default gateway -> ip route | grep default
+change mac -> sudo ip link set dev enp2s0f1 address 00:11:22:33:44:55
+ip-Befehl die IPv6-Adressen  -> ist bei "ip addr" dabei
+--
+show all active TCP Connection
+ netstat -at
+UDP
+ netstat -au
