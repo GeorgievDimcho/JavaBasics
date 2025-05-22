@@ -1,0 +1,52 @@
+/* css for all html element */
+
+p {
+    /* rem -> root element */
+    font-size: 1rem; /* 24 px , 1 rem -> default - 16 px, je nach browser einstellung */
+    /* em -> eltern element */
+    max-width: 500px;
+}
+
+/* css element with ID=? 
+#
+*/
+
+#special {
+    display: inline-f;
+    background-color: aqua;
+    color: #fff;
+}
+
+#ourflex {
+    display: flex;
+    flex-direction:column;
+    /*justify-content: center;
+    align-items: center;
+    flex-wrap: wrap-reverse;*/
+}
+
+/* css element with CLASS=?
+.
+*/
+
+.myp {
+    border: 5px solid #000;
+    border-radius: 2px;
+    color: #edf107;
+
+}
+
+.container {
+    /* view-width, px, %, rem, em */
+    /*max-width: 600px; */
+    gap: 50px;
+    background-color: #c0bebe;
+    display: flex;
+    flex-direction:row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap-reverse;
+    /*flex-grow: ;*/
+}
+
+/* jedem link in einem div */
