@@ -7,9 +7,9 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-@Entity
+//@Entity
 public class Todo {
-    @Id
+   // @Id
     private String id;
     //@NotB
     private String task;

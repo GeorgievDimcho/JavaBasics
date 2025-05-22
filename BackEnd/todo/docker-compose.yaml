@@ -1,0 +1,9 @@
+services:
+  db:
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=eww
+      - POSTGRES_PASSWORD=eww
+      - POSTGRES_DB=todoapp
