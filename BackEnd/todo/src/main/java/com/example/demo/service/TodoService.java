@@ -52,4 +52,12 @@ public class TodoService {
         }
         todoRepository.deleteById(id);
     }
+
+    public Todo update(Todo todo) {
+        Optional<Todo> oTodo = todoRepository.findById(todo.getId());
+        if(oTodo.isEmpty()) {
+            throw new TodoByIdNotFound();
+        }
+        return todoRepository.save(todo);
+    }
 }
